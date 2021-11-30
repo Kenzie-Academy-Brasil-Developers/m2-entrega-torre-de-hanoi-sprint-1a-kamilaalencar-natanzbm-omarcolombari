@@ -32,3 +32,34 @@ function createDisc() {
     tower.appendChild(disc3);
 }
 createDisc();
+
+
+let box = document.querySelector('body')
+box.addEventListener('click', move)
+let disco
+function move(event){
+    let disc = event.target
+    //console.log(disc.className)
+    if(disc.className == 'disc1 disc'){
+        disco = event.target
+        console.log(disco)
+    }
+    if(disc.className == 'disc2 disc'){
+        disco = event.target
+        console.log(disco)
+    }
+    if(disc.className == 'disc3 disc'){
+        disco = event.target
+        console.log(disco)
+    }
+    //console.log(disco)
+    if(disc.className == 'tower1 tower'){
+        disc.appendChild(disco)
+    }
+    if(disc.className == 'tower2 tower'){
+        disc.appendChild(disco)
+    }
+    if(disc.className == 'tower3 tower'){
+        disc.appendChild(disco)
+    }
+}
