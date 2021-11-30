@@ -1,95 +1,66 @@
-/* Constantes gerais para geração dos elementos usando o DOM*/
-/* Quadrados */
-const box1 = document.getElementById('space1');
-const box2 = document.getElementById('space2');
-const box3 = document.getElementById('space3');
 
-/* Torres */
-const tower1 = document.createElement('div');
-const tower2 = document.createElement('div');
-const tower3 = document.createElement('div');
+    const box = document.getElementById('box');
 
-/* Discos */
-/* Tamanho dos discos começando do menor (1) ao maior (3) */
-const disk1 = document.createElement('div');
-const disk2 = document.createElement('div');
-const disk3 = document.createElement('div');
+    const tower1 = document.createElement('div');
+    const tower2 = document.createElement('div');
+    const tower3 = document.createElement('div');
 
+    tower1.classList.add('tower1', 'tower');
+    tower2.classList.add('tower2', 'tower');
+    tower3.classList.add('tower3', 'tower');
 
-/* Funções para mostrar discos e torres */
-function showDisks() {
-    diskC(box1);
-    diskB(box1);
-    diskA(box1);
+    box.appendChild(tower1);
+    box.appendChild(tower2);
+    box.appendChild(tower3);
+
+function createDisc() {
+    const tower = document.getElementsByClassName('tower1')[0];
+
+    const disc1 = document.createElement('div');
+    const disc2 = document.createElement('div');
+    const disc3 = document.createElement('div');
+
+    disc1.classList.add('disc1', 'disc');
+    disc2.classList.add('disc2', 'disc');
+    disc3.classList.add('disc3', 'disc');
+
+    tower.appendChild(disc1);
+    tower.appendChild(disc2);
+    tower.appendChild(disc3);
 }
-showDisks();
-
-function showTowers() {
-    leftTower(box1);
-    middleTower(box2);
-    rightTower(box3);
-}
-showTowers();
+createDisc();
 
 
-/* Funcionalidades e estilo usando o DOM */
-
-/* Torres */
-function leftTower(tower) {
-    tower.appendChild(tower1);
-    tower1.classList.add('torres');
-    return tower1;
+// armazena todas as todas em um array
+const towers = [tower1, tower2, tower3]
+// percorre o array para adicionar o click em todas as torres
+for (let i = 0; i < towers.length ; i++){
+    towers[i].addEventListener("click", moviment)
 }
 
-function middleTower(tower) {
-    tower.appendChild(tower2);
-    tower2.classList.add('torres');
-    return tower2;
+// variável que armazena se o jogador esta na torre de origem ou na torre de destino.
+let local
+let clickmov = true
+function moviment(e){
+    // verifica se é o primeiro click ou não
+    if (clickmov === true){
+        // verifica se a torre está vazia
+        if(e.currentTarget.childElementCount === 0 ){
+            clickmov = true
+        
+        } else {
+            local= e.currentTarget.lastChild
+            clickmov = false
+        }
+    } else{
+        // se for o segundo click, verifica se é válido
+        if(e.currentTarget.lastChild===null || mover.clientWidth < e.currentTarget.lastChild.clientWidth){
+            e.currentTarget.appendChild(local)
+            clickmov = true
+        }else{
+            clickmov = true
+        }
+    }
+
 }
 
-function rightTower(tower) {
-    tower.appendChild(tower3);
-    tower3.classList.add('torres');
-    return tower3;
-}
-
-/* Discos */
-function diskA(disc) {
-    disc.appendChild(disk1);
-    disk1.classList.add('discos');
-    disk1.style.width = '40%';
-    disk1.style.height = '40px';
-    disk1.style.backgroundColor = 'blue';
-    return disk1;
-}
-
-function diskB(disc) {
-    disc.appendChild(disk2);
-    disk2.classList.add('discos');
-    disk2.style.width = '60%';
-    disk2.style.height = '40px';
-    disk2.style.backgroundColor = 'darkblue';
-    return disk2;
-}
-
-function diskC(disc) {
-    disc.appendChild(disk3);
-    disk3.classList.add('discos');
-    disk3.style.width = '80%';
-    disk3.style.height = '40px';
-    disk3.style.backgroundColor = 'black';
-    return disk3;
-}
-
-// Adicionar handles de click
-
-// váriavel que vai armazernar a torre de origem
-const towerOrigin = '';
-// váriavel que vai armazenar a torre de destino
-const towerDestiny = '';
-
-tower1.addEventListener('click', clickMoviment)
-
-function clickMoviment(e){
-    console.log('oi')
-}
