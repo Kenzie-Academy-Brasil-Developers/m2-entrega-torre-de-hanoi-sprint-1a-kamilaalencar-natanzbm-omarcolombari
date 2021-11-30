@@ -80,3 +80,16 @@ function diskC(disc) {
     disk3.style.backgroundColor = 'black';
     return disk3;
 }
+
+// Adicionar handles de click
+
+// váriavel que vai armazernar a torre de origem
+const towerOrigin = '';
+// váriavel que vai armazenar a torre de destino
+const towerDestiny = '';
+
+tower1.addEventListener('click', clickMoviment)
+
+function clickMoviment(e){
+    console.log('oi')
+}
