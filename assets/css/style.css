@@ -1,55 +1,55 @@
-h1 {
-    text-align: center;
-    text-decoration: underline;
-    font-size: 36px;
-    font-weight: 700;
-    margin-top: 30px;
-    margin-bottom: 30px;
+body {
+    background-color: whitesmoke;
 }
 
-h3 {
-    text-align: center;
-    font-size: 21px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-main {
+#container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
+    background-color: red;
+    width: 100%;
+    height: 500px;
 }
 
-div {
-    position: relative;
-    width: 280px;
+#box {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+    width: 90%;
     height: 200px;
-    box-shadow: 5px 10px 18px #888888;
-    border: solid 1px black;
-    border-radius: 15px;
+}
+
+.tower {
+    height: 200px;
+    width: 15px;
+    background-color: black;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    margin: 30px;
+    border-radius: 15%;
 }
 
-.torres {
-    position: absolute;
-    width: 10px;
-    height: 175px;
-    background: black;
-    border-radius: 10px;
-    z-index: -2;
+.disc {
+    background-color: white;
+    height: 25px;
+    border: solid 1px black;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
-#space1,
-#space2,
-#space3 {
-    margin: 25px;
+.disc1 {
+    width: 140px;
+    background-color: yellow;
 }
 
-@media (min-width: 900px) {
-    main {
-        flex-direction: row;
-        justify-content: center;
-    }
+.disc2 {
+    width: 100px;
+    background-color: lime;
+}
+
+.disc3 {
+    width: 60px;
+    background-color: royalblue;
 }
