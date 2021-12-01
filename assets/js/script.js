@@ -32,6 +32,7 @@ function createDisc() {
     const disc2 = document.createElement('div');
     const disc3 = document.createElement('div');
 
+
     disc1.classList.add('disc1', 'disc');
     disc2.classList.add('disc2', 'disc');
     disc3.classList.add('disc3', 'disc');
@@ -42,6 +43,10 @@ function createDisc() {
 }
 createDisc();
 
+
+//CONTADOR DE MOVIMENTOS 
+const contador = document.getElementById('contador')
+let movimentosRealizados = 0
 
 // armazena todas as todas em um array
 const towers = [tower1, tower2, tower3];
@@ -70,8 +75,44 @@ function moviment(e) {
         if(e.currentTarget.lastChild===null || local.clientWidth < e.currentTarget.lastChild.clientWidth){
             e.currentTarget.appendChild(local)
             clickmov = true
+            movimentosRealizados += 1
+            contador.innerText = 'Movimentos realizados: ' + movimentosRealizados
         }else{
             clickmov = true
         }
     }
+    console.log(movimentosRealizados)
+    checkVitory()
+}
+
+//VERIFICADOR DE VITÓRIA
+function checkVitory(){
+    if(tower3.childElementCount === 3){
+        createModal('Você venceu!')
+    }
+}
+
+function createModal(string) {
+    const modal = document.createElement('div')
+    const background = document.createElement('div')
+
+    const paragrafo = document.createElement('p')
+    paragrafo.innerText = string
+
+    modal.className = 'modal'
+    modal.id = 'modal'
+    paragrafo.className = 'paragrafo'
+    paragrafo.id = 'paragrafo'
+    background.className = 'background'
+    background.id = 'background'
+
+    modal.appendChild(paragrafo)
+    container.appendChild(modal)
+    container.appendChild(background)
+
+    setTimeout(restartPage, 3000)
+}
+
+function restartPage() {
+    location.reload()
 }
