@@ -27,7 +27,7 @@ box3.appendChild(tower3);
 
 
 //Função para criação dos discos
-function createDisc() {
+function createDiscEasy() {
     const tower = document.getElementsByClassName('tower1')[0];
 
     const disc1 = document.createElement('div');
@@ -42,7 +42,97 @@ function createDisc() {
     tower.appendChild(disc2);
     tower.appendChild(disc3);
 }
-createDisc();
+
+function createDiscMedium() {
+    const tower = document.getElementsByClassName('tower1')[0];
+
+    const disc1 = document.createElement('div');
+    const disc2 = document.createElement('div');
+    const disc3 = document.createElement('div');
+    const disc4 = document.createElement('div');
+
+    disc1.classList.add('disc1', 'disc');
+    disc2.classList.add('disc2', 'disc');
+    disc3.classList.add('disc3', 'disc');
+    disc4.classList.add('disc4', 'disc');
+
+    tower.appendChild(disc1);
+    tower.appendChild(disc2);
+    tower.appendChild(disc3);
+    tower.appendChild(disc4)
+}
+
+function createDiscHard() {
+    const tower = document.getElementsByClassName('tower1')[0];
+
+    const disc1 = document.createElement('div');
+    const disc2 = document.createElement('div');
+    const disc3 = document.createElement('div');
+    const disc4 = document.createElement('div');
+    const disc5 = document.createElement('div');
+
+    disc1.classList.add('disc1', 'disc');
+    disc2.classList.add('disc2', 'disc');
+    disc3.classList.add('disc3', 'disc');
+    disc4.classList.add('disc4', 'disc');
+    disc5.classList.add('disc5', 'disc');
+
+    tower.appendChild(disc1);
+    tower.appendChild(disc2);
+    tower.appendChild(disc3);
+    tower.appendChild(disc4)
+    tower.appendChild(disc5)
+}
+
+//NIVEIS DE DIFICULDADE
+const footer = document.querySelector('footer')
+const buttonsDificulty = document.getElementById('buttons')
+
+const easy = document.createElement('button')
+const medium = document.createElement('button')
+const hard = document.createElement('button')
+
+easy.innerText = 'Fácil'
+easy.id = 'easy'
+
+medium.innerText = 'Médio'
+medium.id = 'medium'
+
+hard.innerText= 'Difícil'
+hard.id = 'hard'
+
+buttonsDificulty.appendChild(easy)
+buttonsDificulty.appendChild(medium)
+buttonsDificulty.appendChild(hard)
+
+footer.addEventListener('click', selectDificulty)
+
+function selectDificulty(event){
+    let select = event.target;
+    if(select == easy){
+        createDiscEasy()
+        hiddenButtons()
+        createButtonReset()
+    }
+    if(select == medium){
+        createDiscMedium()
+        hiddenButtons()
+        createButtonReset()
+    }
+    if(select == hard){
+        createDiscHard()
+        hiddenButtons()
+        createButtonReset()
+    }
+}
+
+function hiddenButtons() {
+    easy.style.display = 'none'
+    medium.style.display = 'none'
+    hard.style.display = 'none'
+}
+
+
 
 //CONTADOR DE MOVIMENTOS 
 const contador = document.getElementById('contador');
@@ -79,18 +169,31 @@ function movement(e) {
             clickmov = true;
             movimentosRealizados += 1;
             contador.innerText = 'Movimentos realizados: ' + movimentosRealizados;
+            checkVitory()
         } else {
             clickmov = true;
-        }
+        } 
     }
-    console.log(movimentosRealizados);
-    checkVitory();
 }
 
 //VERIFICADOR DE VITÓRIA
-function checkVitory() {
-    if (tower3.childElementCount === 3) {
-        createModal('Você venceu! Pressione F5 para reiniciar.');
+container.addEventListener('click', checkVitory)
+
+function checkVitory(){
+    if (tower3.childElementCount === 5 &&
+        tower2.innerHTML === '' &&
+        tower1.innerHTML === ''){
+        createModal('Você venceu!');
+    }
+    if (tower3.childElementCount === 4 &&
+        tower2.innerHTML === '' &&
+        tower1.innerHTML === ''){
+        createModal('Você venceu!');
+    }
+    if (tower3.childElementCount === 3 &&
+        tower2.innerHTML === '' &&
+        tower1.innerHTML === ''){
+        createModal('Você venceu!');
     }
 }
 
@@ -114,18 +217,33 @@ function createModal(string) {
     setTimeout(restartPage, 3000);
 }
 
+function restartPage() {
+    document.location.reload(true)
+}
 
 // Função Reset
-const restart = document.getElementById('reset-button');
+const restart = document.createElement('button')
+
+function createButtonReset() {
+const divReset = document.getElementById('reset')
+
+restart.id = 'reset-button'
+restart.innerText = 'Reset'
+divReset.appendChild(restart)
+}
 
 const resetGame = () => {
     tower1.innerHTML = '';
     tower2.innerHTML = '';
     tower3.innerHTML = '';
 
-    createDisc();
+    easy.style.display = 'block'
+    medium.style.display = 'block'
+    hard.style.display = 'block'
 
+    restart.remove()
+    
     movimentosRealizados = 0;
-    contador.innerText = 'Movimentos realizados: ' + movimentosRealizados;
+    contador.innerText = ''
 }
 restart.addEventListener('click', resetGame);

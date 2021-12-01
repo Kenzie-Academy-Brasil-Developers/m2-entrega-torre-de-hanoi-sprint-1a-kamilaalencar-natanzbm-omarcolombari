@@ -97,6 +97,15 @@ h3 {
     background-color: yellow;
 }
 
+.disc4 {
+    width: 400%;
+    background-color: red;
+}
+
+.disc5 {
+    width: 300%;
+    background-color: green;
+}
 button {
     margin-bottom: 50px;
     width: 100px;
