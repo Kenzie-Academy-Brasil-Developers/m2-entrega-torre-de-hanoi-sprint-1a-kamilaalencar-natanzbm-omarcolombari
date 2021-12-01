@@ -98,7 +98,7 @@ easy.id = 'easy'
 medium.innerText = 'Médio'
 medium.id = 'medium'
 
-hard.innerText= 'Difícil'
+hard.innerText = 'Difícil'
 hard.id = 'hard'
 
 buttonsDificulty.appendChild(easy)
@@ -107,19 +107,19 @@ buttonsDificulty.appendChild(hard)
 
 footer.addEventListener('click', selectDificulty)
 
-function selectDificulty(event){
+function selectDificulty(event) {
     let select = event.target;
-    if(select == easy){
+    if (select == easy) {
         createDiscEasy()
         hiddenButtons()
         createButtonReset()
     }
-    if(select == medium){
+    if (select == medium) {
         createDiscMedium()
         hiddenButtons()
         createButtonReset()
     }
-    if(select == hard){
+    if (select == hard) {
         createDiscHard()
         hiddenButtons()
         createButtonReset()
@@ -172,27 +172,27 @@ function movement(e) {
             checkVitory()
         } else {
             clickmov = true;
-        } 
+        }
     }
 }
 
 //VERIFICADOR DE VITÓRIA
 container.addEventListener('click', checkVitory)
 
-function checkVitory(){
+function checkVitory() {
     if (tower3.childElementCount === 5 &&
         tower2.innerHTML === '' &&
-        tower1.innerHTML === ''){
+        tower1.innerHTML === '') {
         createModal('Você venceu!');
     }
     if (tower3.childElementCount === 4 &&
         tower2.innerHTML === '' &&
-        tower1.innerHTML === ''){
+        tower1.innerHTML === '') {
         createModal('Você venceu!');
     }
     if (tower3.childElementCount === 3 &&
         tower2.innerHTML === '' &&
-        tower1.innerHTML === ''){
+        tower1.innerHTML === '') {
         createModal('Você venceu!');
     }
 }
@@ -225,11 +225,11 @@ function restartPage() {
 const restart = document.createElement('button')
 
 function createButtonReset() {
-const divReset = document.getElementById('reset')
+    const divReset = document.getElementById('reset')
 
-restart.id = 'reset-button'
-restart.innerText = 'Reset'
-divReset.appendChild(restart)
+    restart.id = 'reset-button'
+    restart.innerText = 'Reset'
+    divReset.appendChild(restart)
 }
 
 const resetGame = () => {
@@ -242,7 +242,7 @@ const resetGame = () => {
     hard.style.display = 'block'
 
     restart.remove()
-    
+
     movimentosRealizados = 0;
     contador.innerText = ''
 }

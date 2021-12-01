@@ -37,6 +37,20 @@ h3 {
     height: 100%;
 }
 
+.details {
+    font-weight: 700;
+    font-size: 18px;
+    padding: 5px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+.details p {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px;
+}
+
 #box1,
 #box2,
 #box3 {
@@ -99,15 +113,16 @@ h3 {
 
 .disc4 {
     width: 400%;
-    background-color: red;
+    background-color: orange;
 }
 
 .disc5 {
     width: 300%;
-    background-color: green;
+    background-color: red;
 }
+
 button {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     width: 100px;
     height: 40px;
     cursor: pointer;
@@ -165,7 +180,8 @@ button:focus {
 
 footer div {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 }
 
 .facil,
@@ -218,5 +234,18 @@ footer div {
         background-color: black;
         margin: 30px;
         border-radius: 15px;
+    }
+
+    footer div {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .details {
+        font-size: 20px;
+    }
+
+    .details p {
+        font-size: 17px;
     }
 }
