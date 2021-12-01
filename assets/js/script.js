@@ -1,3 +1,4 @@
+//Variáveis e estilização DOM
 const container = document.getElementById('container');
 
 const box1 = document.createElement('div');
@@ -25,13 +26,13 @@ box2.appendChild(tower2);
 box3.appendChild(tower3);
 
 
+//Função para criação dos discos
 function createDisc() {
     const tower = document.getElementsByClassName('tower1')[0];
 
     const disc1 = document.createElement('div');
     const disc2 = document.createElement('div');
     const disc3 = document.createElement('div');
-
 
     disc1.classList.add('disc1', 'disc');
     disc2.classList.add('disc2', 'disc');
@@ -43,26 +44,26 @@ function createDisc() {
 }
 createDisc();
 
-
 //CONTADOR DE MOVIMENTOS 
-const contador = document.getElementById('contador')
-let movimentosRealizados = 0
+const contador = document.getElementById('contador');
+let movimentosRealizados = 0;
 
-// armazena todas as todas em um array
+// Armazena todas as torres em um array
 const towers = [tower1, tower2, tower3];
-// percorre o array para adicionar o click em todas as torres
+
+// Percorre o array para adicionar o click em todas as torres
 for (let i = 0; i < towers.length; i++) {
-    towers[i].addEventListener("click", moviment);
+    towers[i].addEventListener("click", movement);
 }
 
-// variável que armazena se o jogador esta na torre de origem ou na torre de destino.
+// Variável que armazena se o jogador está na torre de origem ou na torre de destino
 let local;
 let clickmov = true;
 
-function moviment(e) {
-    // verifica se é o primeiro click ou não
+function movement(e) {
+    // Verifica se é o primeiro click ou não
     if (clickmov === true) {
-        // verifica se a torre está vazia
+        // Verifica se a torre está vazia
         if (e.currentTarget.childElementCount === 0) {
             clickmov = true;
 
@@ -70,49 +71,61 @@ function moviment(e) {
             local = e.currentTarget.lastChild;
             clickmov = false;
         }
+
     } else {
-        // se for o segundo click, verifica se é válido
-        if(e.currentTarget.lastChild===null || local.clientWidth < e.currentTarget.lastChild.clientWidth){
-            e.currentTarget.appendChild(local)
-            clickmov = true
-            movimentosRealizados += 1
-            contador.innerText = 'Movimentos realizados: ' + movimentosRealizados
-        }else{
-            clickmov = true
+        // Se for o segundo click, verifica se é válido
+        if (e.currentTarget.lastChild === null || local.clientWidth < e.currentTarget.lastChild.clientWidth) {
+            e.currentTarget.appendChild(local);
+            clickmov = true;
+            movimentosRealizados += 1;
+            contador.innerText = 'Movimentos realizados: ' + movimentosRealizados;
+        } else {
+            clickmov = true;
         }
     }
-    console.log(movimentosRealizados)
-    checkVitory()
+    console.log(movimentosRealizados);
+    checkVitory();
 }
 
 //VERIFICADOR DE VITÓRIA
-function checkVitory(){
-    if(tower3.childElementCount === 3){
-        createModal('Você venceu!')
+function checkVitory() {
+    if (tower3.childElementCount === 3) {
+        createModal('Você venceu! Pressione F5 para reiniciar.');
     }
 }
 
 function createModal(string) {
-    const modal = document.createElement('div')
-    const background = document.createElement('div')
+    const modal = document.createElement('div');
+    const background = document.createElement('div');
+    const paragrafo = document.createElement('p');
 
-    const paragrafo = document.createElement('p')
-    paragrafo.innerText = string
+    modal.className = 'modal';
+    modal.id = 'modal';
+    paragrafo.innerText = string;
+    paragrafo.className = 'paragrafo';
+    paragrafo.id = 'paragrafo';
+    background.className = 'background';
+    background.id = 'background';
 
-    modal.className = 'modal'
-    modal.id = 'modal'
-    paragrafo.className = 'paragrafo'
-    paragrafo.id = 'paragrafo'
-    background.className = 'background'
-    background.id = 'background'
+    modal.appendChild(paragrafo);
+    container.appendChild(modal);
+    container.appendChild(background);
 
-    modal.appendChild(paragrafo)
-    container.appendChild(modal)
-    container.appendChild(background)
-
-    setTimeout(restartPage, 3000)
+    setTimeout(restartPage, 3000);
 }
 
-function restartPage() {
-    location.reload()
+
+// Função Reset
+const restart = document.getElementById('reset-button');
+
+const resetGame = () => {
+    tower1.innerHTML = '';
+    tower2.innerHTML = '';
+    tower3.innerHTML = '';
+
+    createDisc();
+
+    movimentosRealizados = 0;
+    contador.innerText = 'Movimentos realizados: ' + movimentosRealizados;
 }
+restart.addEventListener('click', resetGame);
