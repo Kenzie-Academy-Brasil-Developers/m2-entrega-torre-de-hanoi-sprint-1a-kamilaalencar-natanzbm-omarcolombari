@@ -54,7 +54,7 @@ function moviment(e){
         }
     } else{
         // se for o segundo click, verifica se é válido
-        if(e.currentTarget.lastChild===null || mover.clientWidth < e.currentTarget.lastChild.clientWidth){
+        if(e.currentTarget.lastChild===null || local.clientWidth < e.currentTarget.lastChild.clientWidth){
             e.currentTarget.appendChild(local)
             clickmov = true
         }else{
