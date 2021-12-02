@@ -211,23 +211,11 @@ footer div {
     text-shadow: 6px 6px 8px #000000;
 }
 
-summary {
-    color: white;
-    padding: 10px;
-}
-
 details {
-   color: white;
-   text-align: center;
-   text-shadow: 6px 6px 8px #000000;
+    text-align: center;
 }
 
 details p {
-    color: white;
-    width: 300px;
-    margin: 0 auto;
-    text-decoration: underline;
-    text-shadow: 6px 6px 8px #000000;
     font-size: 20px;
 }
 

@@ -84,6 +84,7 @@ function createDiscHard() {
     tower.appendChild(disc5)
 }
 
+
 //NIVEIS DE DIFICULDADE
 const footer = document.querySelector('footer')
 const buttonsDificulty = document.getElementById('buttons')
@@ -131,7 +132,6 @@ function hiddenButtons() {
     medium.style.display = 'none'
     hard.style.display = 'none'
 }
-
 
 
 //CONTADOR DE MOVIMENTOS 
