@@ -1,0 +1,268 @@
+html {
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(111, 91, 69, 1) 100%);
+}
+
+header {
+    background: rgb(0, 0, 0);
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 18%, rgba(83, 40, 0, 1) 100%);
+}
+
+h1 {
+    font-size: 35px;
+    text-align: center;
+    padding: 9px;
+    font-weight: 700;
+    color: white;
+}
+
+h3 {
+    text-align: center;
+    font-size: 23px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.details {
+    font-weight: 700;
+    font-size: 18px;
+    padding: 5px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+.details p {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px;
+}
+
+#box1,
+#box2,
+#box3 {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 180px;
+    height: 180px;
+    border: solid 1px black;
+    border-radius: 15%;
+    box-shadow: 7px 3px 3px black;
+}
+
+#box1:hover,
+#box2:hover,
+#box3:hover {
+    background-color: rgba(0, 0, 0, 0.151);
+}
+
+.tower {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    height: 150px;
+    width: 15px;
+    background-color: black;
+    margin: 30px;
+    border-radius: 15px;
+}
+
+.disc {
+    background-color: white;
+    height: 15%;
+    border: solid 1px black;
+    border-radius: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.disc:hover {
+    border: solid 1px white;
+}
+
+.disc1 {
+    width: 1000%;
+    background-color: blue;
+}
+
+.disc2 {
+    width: 800%;
+    background-color: lime;
+}
+
+.disc3 {
+    width: 600%;
+    background-color: yellow;
+}
+
+.disc4 {
+    width: 400%;
+    background-color: orange;
+}
+
+.disc5 {
+    width: 300%;
+    background-color: red;
+}
+
+button {
+    margin-bottom: 20px;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    background: white;
+    border: 1px solid black;
+    box-shadow: 5px 5px 0 black,
+        -5px -5px 0 black,
+        -5px 5px 0 black,
+        5px -5px 0 black;
+    transition: 500ms ease-in-out;
+}
+
+button:hover {
+    box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+}
+
+button:focus {
+    outline: none;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+}
+
+.modal {
+    z-index: 9999;
+    width: 80vw;
+    height: auto;
+    padding: 10px;
+    color: white;
+    background-color: darkgoldenrod;
+    position: fixed;
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    font-weight: 900;
+    border: white solid 1px;
+    box-shadow: 1px 4px 11px 9px black;
+    font-size: 33px;
+    bottom: 40%;
+}
+
+.modal p {
+    color: white;
+}
+
+footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.facil,
+.medio,
+.dificil {
+    width: 158px;
+    font-size: 40px;
+    background-color: #333;
+    color: white;
+    border: 2px solid black;
+    box-shadow: 5px 9px 13px 5px rgb(0 0 0 / 83%);
+}
+
+.facil:hover,
+.medio:hover,
+.dificil:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.mensagem-inicial {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    text-shadow: 6px 6px 8px #000000;
+}
+
+details {
+    text-align: center;
+}
+
+details p {
+    font-size: 20px;
+}
+
+@media screen and (min-width: 700px) {
+    #container {
+        flex-direction: row;
+    }
+
+    h3 {
+        margin-top: 0;
+    }
+
+    #box1,
+    #box2,
+    #box3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 60px;
+        width: 250px;
+        height: 250px;
+        border: solid 1px black;
+        border-radius: 15%;
+        box-shadow: 7px 3px 3px black;
+    }
+
+    .tower {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        height: 180px;
+        width: 15px;
+        background-color: black;
+        margin: 30px;
+        border-radius: 15px;
+    }
+
+    footer div {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .details {
+        font-size: 20px;
+    }
+
+    .details p {
+        font-size: 17px;
+    }
+}
